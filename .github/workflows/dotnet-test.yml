@@ -10,7 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-
     steps:
       - uses: actions/checkout@v3
 
@@ -43,19 +42,8 @@ jobs:
 
       - name: Test
         run: dotnet test --no-build --verbosity normal
-        
-      - name: 👽 Poster un commentaire alien en cas d’échec
-        if: failure() && github.event_name == 'pull_request'
-        uses: peter-evans/create-or-update-comment@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            👽 **Humain, ton code est incompréhensible pour ma civilisation.**
-            Peux-tu ajouter des tests pour que nous puissions le décoder ? 🤖🛠️
 
-            _Ce message interstellaire a été généré automatiquement par le Grand Conseil des GitHub Actions._
-            - name: ☀️ Résultat des tests
+      - name: ☀️ Résultat des tests
         if: success()
         run: echo "✅ Tous les tests ont réussi ! ☀️"
 
