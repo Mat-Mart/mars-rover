@@ -2,12 +2,25 @@
 
 on:
   push:
-    branches: [ main ]  # ou ta branche par défaut
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
-  build:
+  validate-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check commit message for 🚀
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          echo "Commit message: $COMMIT_MSG"
+          if [[ "$COMMIT_MSG" != *"🚀"* ]]; then
+            echo "❌ Le message de commit doit contenir une fusée 🚀"
+            exit 1
+          fi
+
+  build-and-test:
+    needs: validate-commit
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +30,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '7.0.x' # adapte la version à ton projet
+          dotnet-version: '7.0.x'
 
       - name: Restore dependencies
         run: dotnet restore
