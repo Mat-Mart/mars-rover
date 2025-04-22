@@ -50,3 +50,4 @@ jobs:
       - name: 🌩️ Résultat des tests
         if: failure()
         run: echo "❌ Certains tests ont échoué... 🌩️"
+        
