@@ -53,7 +53,7 @@ jobs:
           body: |
             👽 **Humain, ton code est incompréhensible pour ma civilisation.**
             Peux-tu ajouter des tests pour que nous puissions le décoder ? 🤖🛠️
-            
+
             _Ce message interstellaire a été généré automatiquement par le Grand Conseil des GitHub Actions._
             - name: ☀️ Résultat des tests
         if: success()
