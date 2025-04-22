@@ -18,7 +18,6 @@ jobs:
             echo "❌ Le message de commit doit contenir une fusée 🚀"
             exit 1
           fi
-          
 
   build-and-test:
     needs: validate-commit
