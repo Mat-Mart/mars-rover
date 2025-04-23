@@ -2,7 +2,7 @@ namespace CSharp_xUnit_starter;
 
 public record Coordinates(int X, int Y, Direction Direction)
 {
-    // public Rover? Rover { get; init; }
+    public Rover? Rover { get; init; }
     public Coordinates YTranslate() => this with { Y = TranslateAroundTheWorld(Y) };
     public Coordinates YAntiTranslate() => this with { Y = AntiTranslateAroundTheWorld(Y) };
     public Coordinates XAntiTranslate() => this with { X = AntiTranslateAroundTheWorld(X) };
