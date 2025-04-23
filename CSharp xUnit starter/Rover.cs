@@ -9,9 +9,11 @@ public class Rover
         Coordinates = new Coordinates(x, y, direction);
     }
 
+    // with { Rover = this };
+
     public Rover(Coordinates coordinates)
     {
-        Coordinates = coordinates with { Rover = this };
+        Coordinates = coordinates;
     }
 
     public Rover Advance()
