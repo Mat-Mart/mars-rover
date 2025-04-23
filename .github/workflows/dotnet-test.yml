@@ -23,7 +23,7 @@ jobs:
           fi
 
       - name: Vérifier les dépendances circulaires
-        run: python3 Scripts/check_circular_dependencies.py
+        run: python3 .github/Scripts/check_circular_dependencies.py
         
       - name: Cache NuGet packages
         uses: actions/cache@v3
