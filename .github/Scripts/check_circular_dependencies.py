@@ -56,11 +56,12 @@ def detect_cycles(graph):
         stack.pop()
         return None
 
-    for node in graph:
+    for node in list(graph): 
         cycle = dfs(node)
         if cycle:
             return cycle
     return None
+
 
 def main():
     cs_files = list(get_cs_files())
