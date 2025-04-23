@@ -11,7 +11,7 @@ public class Rover
 
     public Rover(Coordinates coordinates)
     {
-        Coordinates = coordinates;
+        Coordinates = coordinates with { Rover = this };
     }
 
     public Rover Advance()

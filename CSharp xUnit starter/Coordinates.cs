@@ -2,6 +2,7 @@ namespace CSharp_xUnit_starter;
 
 public record Coordinates(int X, int Y, Direction Direction)
 {
+    public Rover? Rover { get; init; }
     public Coordinates YTranslate() => this with { Y = TranslateAroundTheWorld(Y) };
     public Coordinates YAntiTranslate() => this with { Y = AntiTranslateAroundTheWorld(Y) };
     public Coordinates XAntiTranslate() => this with { X = AntiTranslateAroundTheWorld(X) };
@@ -30,7 +31,6 @@ public record Coordinates(int X, int Y, Direction Direction)
             _ => throw new ArgumentOutOfRangeException(nameof(Direction), Direction, null)
         }
     };
-
     private int TranslateAroundTheWorld(int axis)
     {
         if (axis == 0)

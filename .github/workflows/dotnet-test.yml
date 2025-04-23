@@ -21,6 +21,10 @@ jobs:
           echo "❌ Le message de commit doit contenir une fusée 🚀"
           exit 1
           fi
+
+      - name: Vérifier les dépendances circulaires
+        run: python3 Scripts/check_circular_dependencies.py
+        
       - name: Cache NuGet packages
         uses: actions/cache@v3
         with:
